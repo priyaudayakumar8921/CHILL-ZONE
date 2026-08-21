@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill Zone | Air Conditioning Sales & Service in Eramalloor, Cherthala</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="posters/logo_chillzone.jpeg">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                            dark: '#090d16',
+                            card: '#131b2e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+            font-size: 0.9375rem; /* 15px - slightly smaller, premium feel */
+        }
+
+        /* Premium Typography Overrides: Reduce bulkiness */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600 !important;
+            letter-spacing: -0.01em !important;
+        }
+
+        /* Ticker Animation */
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-ticker {
+            display: flex;
+            width: 200%;
+            animation: ticker 22s linear infinite;
+        }
+
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .dark .glass-panel {
+            background: rgba(19, 27, 46, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Active slide transition */
+        .slide-bg {
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+
+        /* Custom Modal Transition */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 300ms ease-out, transform 300ms ease-out;
+        }
+    
+        .dark body {
+            background-color: #090d16;
+            color: #f8fafc;
+        }
+
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+    <!-- TOP NAVIGATION HEADER -->
+    <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 glass-panel rounded-full transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-none">
+        <div class="h-14 px-4 sm:px-8 flex items-center justify-between w-full">
+
+            <!-- Logo -->
+            <a href="new.html#" class="flex items-center gap-3 group">
+                <img src="posters/logo_chillzone.jpeg" alt="Chill Zone Logo" class="h-10 w-auto shadow-md shadow-brand-500/10 group-hover:scale-105 transition-transform object-contain">
+                <div>
+                    <span class="text-xl font-medium tracking-tight text-slate-900 dark:text-white block leading-none">Chill Zone</span>
+                    <span class="hidden md:block text-[10px] tracking-widest text-slate-600 dark:text-slate-400 uppercase font-medium">Eramalloor,
+                        Cherthala</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-700 dark:text-slate-300">
+                <a href="new.html#services" class="hover:text-brand-500 transition-colors">Services</a>
+                <a href="new.html#about" class="hover:text-brand-500 transition-colors">About Us</a>
+                <a href="pricing.html" class="hover:text-brand-500 transition-colors">Pricing</a>
+                <a href="posters.html" class="hover:text-brand-500 transition-colors">Posters</a>
+                <a href="new.html#contact" class="hover:text-brand-500 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                                <button onclick="toggleTheme()" class="hidden sm:flex p-2.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-800 dark:text-slate-200 transition-all items-center justify-center" aria-label="Toggle Theme">
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                </button>
+
+                <button onclick="openBookingModal()"
+                    class="hidden sm:flex px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-600 to-blue-600 hover:from-brand-500 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-brand-600/30 hover:shadow-brand-500/50 transition-all items-center gap-2">
+                    <span>Book Service</span>
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()"
+                    class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                    aria-label="Toggle Menu">
+                    <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                    <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- FULLSCREEN NAVIGATION MENU OVERLAY (MOBILE/TABLET) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-slate-50/95 dark:bg-brand-dark/95 backdrop-blur-2xl flex flex-col justify-between p-8 pt-28 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="flex flex-col gap-4 text-xl font-bold tracking-tight">
+            <a href="new.html#hero" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>HOME</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#services" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>SERVICES</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#calculator" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>AC TONNAGE CALCULATOR</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#why-us" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>WHY CHOOSE US</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#process" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>OUR PROCESS</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#contact" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>CONTACT US</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+        </div>
+
+        <div class="space-y-4">
+            <a href="tel:+919567767033"
+                class="w-full py-4 rounded-xl bg-slate-200 dark:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-bold text-center flex items-center justify-center gap-3">
+                <i data-lucide="phone" class="w-5 h-5 text-brand-500"></i>
+                <span>Call +91 95677 67033</span>
+            </a>
+            <button onclick="toggleMobileMenu(); openBookingModal();"
+                class="w-full py-4 rounded-xl bg-brand-600 text-white font-bold text-center shadow-lg shadow-brand-600/40">
+                Schedule Service Now
+            </button>
+        </div>
+    </div>
+
+    <!-- HERO SLIDER SECTION -->
+    <main class="pt-24 pb-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Our <span class="text-brand-500">Posters</span> & Offers</h1>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Check out our latest advertisements, special offers, and service highlights.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%201.27.02%20PM.jpeg" alt="Poster 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.25.42%20PM.jpeg" alt="Poster 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.27.28%20PM.jpeg" alt="Poster 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.46.16%20PM.jpeg" alt="Poster 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.46.18%20PM.jpeg" alt="Poster 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.46.20%20PM.jpeg" alt="Poster 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.46.21%20PM.jpeg" alt="Poster 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.46.22%20PM.jpeg" alt="Poster 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.49.23%20PM.jpeg" alt="Poster 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="group relative rounded-2xl glass-panel overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg hover:-translate-y-2 transition-transform duration-300 aspect-[1/1.414]">
+            <img src="posters/WhatsApp%20Image%202026-08-21%20at%2012.59.22%20PM.jpeg" alt="Poster 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-1">Chill Zone Offer</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="bg-black py-12 border-t border-slate-200 dark:border-white/10 text-slate-500 text-xs">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="posters/logo_chillzone.jpeg" alt="Chill Zone Logo" class="h-8 w-auto object-contain">
+                <span class="text-white font-bold text-lg">Chill Zone</span>
+            </div>
+
+            <p>© 2026 Chill Zone Air Conditioning Services. near chennaman temple, eramalloor, cherthala, alappuzha. All rights reserved.</p>
+
+            <div class="flex gap-4 sm:gap-6 flex-wrap justify-center">
+                <a href="mailto:chillzone9105@gmail.com" class="hover:text-slate-900 dark:hover:text-white transition-colors">chillzone9105@gmail.com</a>
+                <a href="tel:+919567767033" class="hover:text-slate-900 dark:hover:text-white transition-colors">Call: 95677 67033</a>
+                <a href="https://wa.me/919567767033" class="hover:text-slate-900 dark:hover:text-white transition-colors">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- SERVICE DETAIL MODAL -->
+    <div id="service-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-panel max-w-lg w-full p-8 rounded-3xl border border-slate-300 dark:border-white/20 relative">
+            <button onclick="closeServiceModal()" class="absolute top-6 right-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div id="service-modal-content" class="space-y-4">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS TOAST NOTIFICATION -->
+    <div id="toast"
+        class="fixed top-24 right-4 z-50 glass-panel border border-brand-500/50 p-4 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-x-[150%] transition-transform duration-300">
+        <div class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white">
+            <i data-lucide="check" class="w-5 h-5"></i>
+        </div>
+        <div>
+            <h4 class="text-slate-900 dark:text-white font-bold text-sm">Request Submitted!</h4>
+            <p class="text-xs text-slate-700 dark:text-slate-300">Chill Zone team will contact you shortly on phone.</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // SLIDER DATA & LOGIC
+        const slidesData = [
+            {
+                subtitle: "FEEL THE BREEZE",
+                title: "Cool Air,<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-500 to-blue-400'>No Care.</span>",
+                desc: "Determining the appropriate cooling setup, inverter power, and maintenance schedule tailored for homes and businesses across Eramalloor & Cherthala."
+            },
+            {
+                subtitle: "PEAK GUARD PROTECTION",
+                title: "Experience the Art of<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-500 to-blue-400'>Perfect Air.</span>",
+                desc: "Proper installation is crucial for ensuring the durability and effectiveness of your AC unit. Includes leak testing, vacuum flushing, and electrical protection."
+            },
+            {
+                subtitle: "RAIN & HUMIDITY ARMOR",
+                title: "Precision Cooling.<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-500 to-blue-400'>Trusted Service.</span>",
+                desc: "Regular inspection and maintenance are necessary to identify issues such as gas leaks, coil corrosion, and compressor pressure drops."
+            },
+            {
+                subtitle: "SUSTAINABLE COOLING",
+                title: "Smart Cooling for a<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-500 to-blue-400'>Sustainable World.</span>",
+                desc: "Delivering top-notch inverter cooling solutions, protecting your home with quality craftsmanship and eco-friendly R32 refrigerants."
+            }
+        ];
+
+        let currentSlide = 0;
+        let slideInterval = setInterval(nextSlide, 3000);
+
+        function setSlide(index) {
+            currentSlide = index;
+            updateSlideUI();
+            resetSlideTimer();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slidesData.length;
+            updateSlideUI();
+        }
+
+        function resetSlideTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function updateSlideUI() {
+            // Update Text
+            const data = slidesData[currentSlide];
+
+            document.getElementById('hero-title').innerHTML = data.title;
+            document.getElementById('hero-desc').innerText = data.desc;
+
+            // Update Background Images
+            for (let i = 0; i < 4; i++) {
+                const bg = document.getElementById(`slide-bg-${i}`);
+                if (i === currentSlide) {
+                    bg.classList.remove('opacity-0', 'scale-105');
+                    bg.classList.add('opacity-100', 'scale-100');
+                } else {
+                    bg.classList.remove('opacity-100', 'scale-100');
+                    bg.classList.add('opacity-0', 'scale-105');
+                }
+            }
+
+            // Update Nav Indicators
+            const navBtns = document.querySelectorAll('.slide-nav-btn');
+            navBtns.forEach((btn, idx) => {
+                const line = btn.querySelector('.nav-line');
+                if (idx === currentSlide) {
+                    btn.classList.remove('text-slate-500');
+                    btn.classList.add('text-white');
+                    line.classList.remove('bg-white/20');
+                    line.classList.add('bg-brand-500', 'w-12');
+                } else {
+                    btn.classList.remove('text-white');
+                    btn.classList.add('text-slate-500');
+                    line.classList.remove('bg-brand-500', 'w-12');
+                    line.classList.add('bg-white/20', 'w-8');
+                }
+            });
+        }
+
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+
+            if (menu.classList.contains('opacity-0')) {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                iconOpen.classList.add('hidden');
+                iconClose.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // AC CALCULATOR LOGIC
+        function calculateAC() {
+            const sqft = parseInt(document.getElementById('sqft-slider').value);
+            const sun = document.getElementById('sun-select').value;
+            document.getElementById('sqft-val').innerText = sqft + ' sq ft';
+
+            let ton = "1.0 Ton";
+            let advice = "Ideal for small bedrooms up to 120 sq ft. Efficient cooling with minimal electricity usage.";
+
+            let effectiveSqft = sqft * (sun === 'sunny' ? 1.25 : 1.0);
+
+            if (effectiveSqft > 250) {
+                ton = "2.0 Ton";
+                advice = "Recommended for large living halls and open office spaces above 250 sq ft in Kerala.";
+            } else if (effectiveSqft > 130) {
+                ton = "1.5 Ton";
+                advice = "Most popular size! Perfect for standard master bedrooms (120 - 200 sq ft) in Cherthala.";
+            } else {
+                ton = "1.0 Ton";
+                advice = "Ideal for standard guest rooms or small study spaces with low ambient heat load.";
+            }
+
+            document.getElementById('tonnage-result').innerText = ton;
+            document.getElementById('tonnage-advice').innerText = advice;
+        }
+
+        // TESTIMONIAL CAROUSEL
+        const testimonials = [
+            {
+                quote: "The Chill Zone team saved us during peak summer in Eramalloor. Their jet pressure cleaning was extremely thorough, and our AC cooling restored immediately!",
+                author: "Rajesh Varma",
+                role: "Homeowner — Eramalloor, Cherthala"
+            },
+            {
+                quote: "Prompt and transparent pricing! Installed two 1.5-ton inverter ACs at our showroom. Clean copper piping work and no hidden charges.",
+                author: "Santhosh Kumar",
+                role: "Store Owner — Aroor"
+            },
+            {
+                quote: "Best AC service near Cherthala. They diagnosed a complex circuit issue that another technician missed and fixed it on the same day.",
+                author: "Dr. Ananya Nair",
+                role: "Resident — Chandiroor"
+            }
+        ];
+
+        function setTestimonial(index) {
+            const item = testimonials[index];
+            document.getElementById('testimonial-text').innerText = `“${item.quote}”`;
+            document.getElementById('testimonial-author').innerText = item.author;
+            document.getElementById('testimonial-role').innerText = item.role;
+
+            const dots = document.querySelectorAll('.test-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === index) {
+                    dot.classList.remove('bg-slate-600');
+                    dot.classList.add('bg-brand-500');
+                } else {
+                    dot.classList.remove('bg-brand-500');
+                    dot.classList.add('bg-slate-600');
+                }
+            });
+        }
+
+        // FAQ ACCORDION TOGGLE
+        function toggleFAQ(num) {
+            const answer = document.getElementById(`faq-answer-${num}`);
+            const icon = document.getElementById(`faq-icon-${num}`);
+
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(45deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // MODAL HANDLERS
+        function openBookingModal(customNote) {
+            // Scroll to the "Schedule a Visit" form instead of opening a modal
+            document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            if (customNote) {
+                // Pre-fill the textarea in the form
+                const textarea = document.querySelector('#contact-form textarea');
+                if (textarea) {
+                    textarea.value = customNote;
+                }
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showToast();
+            e.target.reset();
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-x-[150%]');
+            setTimeout(() => {
+                toast.classList.add('translate-x-[150%]');
+            }, 4000);
+        }
+
+        // SERVICE DETAILS MODAL
+        const serviceDetailsMap = {
+            '01': {
+                title: "AC Sales & Precision Installation",
+                desc: "Proper split & cassette AC mounting with high-grade copper tubes, anti-vibration rubber pads, vacuum evacuation, and drain piping for long-term reliability in humid climates."
+            },
+            '02': {
+                title: "Emergency Repair & Circuit Diagnostics",
+                desc: "Expert troubleshooting for compressor starting faults, PCB sensor failures, water dripping, electrical tripping with original spare parts replacement."
+            },
+            '03': {
+                title: "Deep Jet Cleaning & Maintenance",
+                desc: "Pressure water jet wash for indoor cooling coils and outdoor condenser fins. Clears dust, mildew, and restores peak airflow while cutting electricity bills up to 25%."
+            },
+            '04': {
+                title: "Refrigerator Service & Repair",
+                desc: "Expert doorstep repair for single-door, double-door, and side-by-side refrigerators. We fix cooling losses, compressor faults, thermostat issues, and water leakages with genuine parts."
+            }
+        };
+
+        function openServiceDetail(id) {
+            const item = serviceDetailsMap[id];
+            const content = document.getElementById('service-modal-content');
+            content.innerHTML = `
+                <div class="inline-block p-3 rounded-2xl bg-brand-500/20 text-brand-400 font-bold mb-2">Service Overview ${id}</div>
+                <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">${item.title}</h3>
+                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">${item.desc}</p>
+                <div class="pt-4 flex gap-3">
+                    <button onclick="closeServiceModal(); openBookingModal('Booking for ${item.title}');" class="flex-1 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm">
+                        Request This Service
+                    </button>
+                    <a href="tel:+919567767033" class="px-4 py-3 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white font-bold text-sm flex items-center justify-center">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            `;
+            lucide.createIcons();
+            const modal = document.getElementById('service-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('service-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+    </script>
+    <script>
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+        
+        // On page load or when changing themes, best to add inline in head to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            // document.documentElement.classList.add('dark'); // Since light is default, we only apply if explicitly set in localstorage, or if preference is dark. Actually user requested: "light mode must be default and dark mode must be selectable only if needed"
+            // Let's make it explicitly check if localstorage is dark.
+        }
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Splash Screen Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if(splash) {
+                    splash.classList.add('opacity-0');
+                    setTimeout(() => splash.remove(), 500);
+                }
+            }, 2000);
+        });
+    </script>
+
+
+    <!-- CHATBOT -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl mb-4 overflow-hidden transition-all transform origin-bottom-right">
+            <div class="bg-gradient-to-r from-brand-600 to-sky-400 p-4 text-white flex justify-between items-center">
+                <div class="font-bold flex items-center gap-2">
+                    <i data-lucide="bot" class="w-5 h-5"></i>
+                    ChillBot
+                </div>
+                <button onclick="toggleChat()" class="hover:text-slate-200"><i data-lucide="x" class="w-4 h-4"></i></button>
+            </div>
+            <div id="chat-messages" class="p-4 h-64 overflow-y-auto flex flex-col gap-3 text-sm bg-slate-50 dark:bg-slate-800 scroll-smooth">
+                <!-- Messages go here -->
+            </div>
+            <div class="p-3 border-t border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900">
+                <form id="chat-form" onsubmit="handleChatSubmit(event)" class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Type a message..." required class="flex-1 bg-slate-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-brand-500 text-sm">
+                    <button type="submit" class="bg-brand-600 text-white p-2 rounded-lg hover:bg-brand-500"><i data-lucide="send" class="w-4 h-4"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Bubble Button -->
+        <button onclick="toggleChat()" class="w-14 h-14 bg-gradient-to-tr from-brand-600 to-sky-400 rounded-full flex items-center justify-center text-white shadow-xl shadow-brand-500/30 hover:scale-105 transition-transform">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+        </button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function toggleChat() {
+            const chatWin = document.getElementById('chat-window');
+            if (chatWin.classList.contains('hidden')) {
+                chatWin.classList.remove('hidden');
+                if (document.getElementById('chat-messages').children.length === 0) {
+                    addBotMessage(getGreeting() + " I am ChillBot! What do you need help with?");
+                }
+            } else {
+                chatWin.classList.add('hidden');
+            }
+        }
+
+        function getGreeting() {
+            const hour = new Date().getHours();
+            if (hour < 12) return "Good morning!";
+            if (hour < 18) return "Good afternoon!";
+            return "Good evening!";
+        }
+
+        function addBotMessage(text) {
+            const msgs = document.getElementById('chat-messages');
+            msgs.innerHTML += `<div class="bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white p-3 rounded-xl rounded-tl-none self-start max-w-[85%]">${text}</div>`;
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const msgs = document.getElementById('chat-messages');
+            msgs.innerHTML += `<div class="bg-brand-600 text-white p-3 rounded-xl rounded-tr-none self-end max-w-[85%]">${text}</div>`;
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        function handleChatSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            addUserMessage(text);
+            input.value = '';
+
+            setTimeout(() => {
+                const lowerText = text.toLowerCase();
+                if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('rate') || lowerText.includes('quote')) {
+                    addBotMessage("Our pricing is highly competitive! Please use the AC Calculator on our site or request a call for a tailored quote.");
+                } else if (lowerText.includes('repair') || lowerText.includes('fix') || lowerText.includes('service') || lowerText.includes('cleaning')) {
+                    addBotMessage("We offer expert repair, jet cleaning, and maintenance for ACs and refrigerators!");
+                } else if (lowerText.includes('time') || lowerText.includes('hour') || lowerText.includes('open') || lowerText.includes('close')) {
+                    addBotMessage("Our business hours are from 8:30 AM to 6:00 PM.");
+                } else if (lowerText.includes('location') || lowerText.includes('where') || lowerText.includes('area') || lowerText.includes('place') || lowerText.includes('serve')) {
+                    addBotMessage("We are based in Eramalloor and serve Cherthala, Aroor, and Ernakulam.");
+                } else if (lowerText.includes('install') || lowerText.includes('buy') || lowerText.includes('sales')) {
+                    addBotMessage("We handle new AC sales and precision installations. Our experts can recommend the perfect model for your room size.");
+                } else {
+                    addBotMessage("For detailed information, please request a call using the 'Schedule a Visit' form on our website, or call us directly at +91 95677 67033!");
+                }
+            }, 600);
+        }
+    </script>
+</body>
+</html>

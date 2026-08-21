@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill Zone | Air Conditioning Sales & Service in Eramalloor, Cherthala</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="posters/logo_chillzone.jpeg">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                            dark: '#090d16',
+                            card: '#131b2e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+            font-size: 0.9375rem; /* 15px - slightly smaller, premium feel */
+        }
+
+        /* Premium Typography Overrides: Reduce bulkiness */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600 !important;
+            letter-spacing: -0.01em !important;
+        }
+
+        /* Ticker Animation */
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-ticker {
+            display: flex;
+            width: 200%;
+            animation: ticker 22s linear infinite;
+        }
+
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .dark .glass-panel {
+            background: rgba(19, 27, 46, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Active slide transition */
+        .slide-bg {
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+
+        /* Custom Modal Transition */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 300ms ease-out, transform 300ms ease-out;
+        }
+    
+        .dark body {
+            background-color: #090d16;
+            color: #f8fafc;
+        }
+
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+    <!-- TOP NAVIGATION HEADER -->
+    <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 glass-panel rounded-full transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-none">
+        <div class="h-14 px-4 sm:px-8 flex items-center justify-between w-full">
+
+            <!-- Logo -->
+            <a href="new.html#" class="flex items-center gap-3 group">
+                <img src="posters/logo_chillzone.jpeg" alt="Chill Zone Logo" class="h-10 w-auto shadow-md shadow-brand-500/10 group-hover:scale-105 transition-transform object-contain">
+                <div>
+                    <span class="text-xl font-medium tracking-tight text-slate-900 dark:text-white block leading-none">Chill Zone</span>
+                    <span class="hidden md:block text-[10px] tracking-widest text-slate-600 dark:text-slate-400 uppercase font-medium">Eramalloor,
+                        Cherthala</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-700 dark:text-slate-300">
+                <a href="new.html#services" class="hover:text-brand-500 transition-colors">Services</a>
+                <a href="new.html#about" class="hover:text-brand-500 transition-colors">About Us</a>
+                <a href="pricing.html" class="hover:text-brand-500 transition-colors">Pricing</a>
+                <a href="posters.html" class="hover:text-brand-500 transition-colors">Posters</a>
+                <a href="new.html#contact" class="hover:text-brand-500 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                                <button onclick="toggleTheme()" class="hidden sm:flex p-2.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-800 dark:text-slate-200 transition-all items-center justify-center" aria-label="Toggle Theme">
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                </button>
+
+                <button onclick="openBookingModal()"
+                    class="hidden sm:flex px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-600 to-blue-600 hover:from-brand-500 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-brand-600/30 hover:shadow-brand-500/50 transition-all items-center gap-2">
+                    <span>Book Service</span>
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()"
+                    class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                    aria-label="Toggle Menu">
+                    <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                    <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- FULLSCREEN NAVIGATION MENU OVERLAY (MOBILE/TABLET) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-slate-50/95 dark:bg-brand-dark/95 backdrop-blur-2xl flex flex-col justify-between p-8 pt-28 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="flex flex-col gap-4 text-xl font-bold tracking-tight">
+            <a href="new.html#hero" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>HOME</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#services" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>SERVICES</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#calculator" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>AC TONNAGE CALCULATOR</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#why-us" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>WHY CHOOSE US</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#process" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>OUR PROCESS</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+            <a href="new.html#contact" onclick="toggleMobileMenu()"
+                class="text-slate-900 dark:text-white hover:text-brand-500 py-2 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                <span>CONTACT US</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-slate-500"></i>
+            </a>
+        </div>
+
+        <div class="space-y-4">
+            <a href="tel:+919567767033"
+                class="w-full py-4 rounded-xl bg-slate-200 dark:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-bold text-center flex items-center justify-center gap-3">
+                <i data-lucide="phone" class="w-5 h-5 text-brand-500"></i>
+                <span>Call +91 95677 67033</span>
+            </a>
+            <button onclick="toggleMobileMenu(); openBookingModal();"
+                class="w-full py-4 rounded-xl bg-brand-600 text-white font-bold text-center shadow-lg shadow-brand-600/40">
+                Schedule Service Now
+            </button>
+        </div>
+    </div>
+
+    <!-- HERO SLIDER SECTION -->
+    <main class="pt-24 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
+    <!-- Header Section -->
+    <div class="text-center mb-10">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Service <span class="text-brand-500">Pricing</span></h1>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Transparent starting prices for appliance repair and maintenance services.</p>
+        <p class="text-sm text-slate-500 dark:text-slate-500 mt-2 italic">*Final pricing may vary depending on the appliance, issue and parts required.</p>
+    </div>
+
+        <!-- SEARCH TAB -->
+    <div class="max-w-xl mx-auto mb-8 relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+        <input type="text" id="pricing-search" onkeyup="filterPricingBySearch()" placeholder="Search services (e.g. PCB repair, gas filling)..." class="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-sm transition-all text-sm">
+    </div>
+
+    <!-- Category Filter -->
+    <div class="flex overflow-x-auto pb-4 mb-8 gap-3 snap-x hide-scrollbar justify-start md:justify-center">
+        <button onclick="filterPricing('all')" class="pricing-filter-btn active shrink-0 px-6 py-2.5 rounded-full text-sm font-semibold bg-brand-600 text-white shadow-md transition-all">All</button>
+        <button onclick="filterPricing('Washing Machine')" class="pricing-filter-btn shrink-0 px-6 py-2.5 rounded-full text-sm font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">Washing Machine</button>
+        <button onclick="filterPricing('Refrigerator')" class="pricing-filter-btn shrink-0 px-6 py-2.5 rounded-full text-sm font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">Refrigerator</button>
+        <button onclick="filterPricing('AC')" class="pricing-filter-btn shrink-0 px-6 py-2.5 rounded-full text-sm font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">AC</button>
+        <button onclick="filterPricing('Commercial')" class="pricing-filter-btn shrink-0 px-6 py-2.5 rounded-full text-sm font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">Commercial</button>
+    </div>
+
+    <!-- Pricing Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="pricing-grid">
+
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Dryer Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹299 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Dryer Issue', '₹299 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Noise Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹199 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Noise Issue', '₹199 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Deep Cleaning Service</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹199 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Deep Cleaning Service', '₹199 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Detergent Dispensing Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹199 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Detergent Dispensing Issue', '₹199 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Electrical Current Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹249 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Electrical Current Issue', '₹249 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Electrical Panel Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹299 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Electrical Panel Issue', '₹299 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Spinning Belt Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹299 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Spinning Belt Issue', '₹299 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Water Leakage Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹249 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Water Leakage Issue', '₹249 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Error On Display</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹199 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Error On Display', '₹199 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Foul Odors Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹199 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Foul Odors Issue', '₹199 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Not Spinning / Washing Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹249 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Not Spinning / Washing Issue', '₹249 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Water Drainage Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹249 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Water Drainage Issue', '₹249 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine No Power / Not Starting</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹249 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine No Power / Not Starting', '₹249 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Timer Issue - Wash / Spin</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹199 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Timer Issue - Wash / Spin', '₹199 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Washing-Machine glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Washing Machine">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Washing Machine Water Filling Issue (Overfilling / Underfilling)</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹249 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('Washing Machine Water Filling Issue (Overfilling / Underfilling)', '₹249 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Noise Issue</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Noise Issue', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Cooling Issue</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Cooling Issue', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Door Issue</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Door Issue', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Water Leakage</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Water Leakage', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Light Not Working</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Light Not Working', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator On Off Issue</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator On Off Issue', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Compressor Repair</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Compressor Repair', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Condenser Coil Repair</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Condenser Coil Repair', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Motor Repair</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Motor Repair', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Refrigerator glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Refrigerator">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Refrigerator Ice Maker Repair</h3>
+                <p class="text-brand-500 font-bold text-lg">Price on inspection</p>
+            </div>
+            <button onclick="openModal('Refrigerator Ice Maker Repair', 'Price on inspection')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Drainage Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹299 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Drainage Issue', '₹299 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Anti Rust Service</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹999 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Anti Rust Service', '₹999 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Noise Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹299 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Noise Issue', '₹299 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Routine Service</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹599 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Routine Service', '₹599 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Smell Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹499 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Smell Issue', '₹499 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Deep Cleaning Service</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹599 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Deep Cleaning Service', '₹599 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Fan Not Working</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹499 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Fan Not Working', '₹499 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Power On Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹299 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Power On Issue', '₹299 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Turning Off Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹299 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Turning Off Issue', '₹299 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Warm Air Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹499 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Warm Air Issue', '₹499 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Water Leakage Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹699 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Water Leakage Issue', '₹699 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Less / No Cooling Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹299 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Less / No Cooling Issue', '₹299 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card AC glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="AC">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">AC Freezing Up / Ice Forming Issue</h3>
+                <p class="text-brand-600 dark:text-brand-400 font-bold text-xl">₹699 <span class="text-sm font-medium text-slate-500 dark:text-slate-400">onwards / visit</span></p>
+            </div>
+            <button onclick="openModal('AC Freezing Up / Ice Forming Issue', '₹699 onwards / visit')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                View Details
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Professional Washing Machine Fixes</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Professional Washing Machine Fixes', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Laundry Equipment Maintenance</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Laundry Equipment Maintenance', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Business Washing Machine Services</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Business Washing Machine Services', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Commercial Washer Servicing</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Commercial Washer Servicing', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Commercial Laundry Appliance Repair</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Commercial Laundry Appliance Repair', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Large-Scale Washing Machine Servicing</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Large-Scale Washing Machine Servicing', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Heavy-Duty Washer Repair</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Heavy-Duty Washer Repair', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Industrial Laundry Machine Repair</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Industrial Laundry Machine Repair', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Industrial Washer Maintenance</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Industrial Washer Maintenance', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+        <div class="pricing-card Commercial glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between" data-category="Commercial">
+            <div>
+                <h3 class="text-slate-900 dark:text-white font-bold text-lg mb-2 leading-tight">Commercial Washing Machine Repair & Services</h3>
+                <p class="text-brand-500 font-bold text-lg">Get a Quote</p>
+            </div>
+            <button onclick="openModal('Commercial Washing Machine Repair & Services', 'Get a Quote')" class="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold border border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-500 hover:text-white transition-colors">
+                Get a Quote
+            </button>
+        </div>
+        
+    </div>
+
+    <!-- Pricing Modal -->
+    <div id="pricing-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white leading-tight" id="modal-title">Service Name</h3>
+                    <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Starting Price</p>
+                    <p class="text-2xl font-extrabold text-brand-600 dark:text-brand-400" id="modal-price">₹299</p>
+                </div>
+                
+                <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">Book a certified technician for this service. Final quote will be provided after inspection.</p>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <a href="tel:+919567767033" class="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:opacity-90 transition-opacity">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        Call Now
+                    </a>
+                    <a href="https://wa.me/919567767033?text=Hi%2C%20I%20would%20like%20to%20book%20a%20service." target="_blank" class="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white font-bold hover:bg-[#20bd5a] transition-colors shadow-lg shadow-[#25D366]/30">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+
+<script>
+    let currentCategory = 'all';
+
+    function filterPricing(category) {
+        currentCategory = category;
+        applyFilters();
+        
+        const btns = document.querySelectorAll('.pricing-filter-btn');
+        btns.forEach(btn => {
+            btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+            btn.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            
+            if (category === 'all' && btn.innerText.trim() === 'All') {
+                btn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+                btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            } else if (btn.innerText.trim() === category) {
+                btn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+                btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            }
+        });
+    }
+
+    function filterPricingBySearch() {
+        applyFilters();
+    }
+    
+    function applyFilters() {
+        const cards = document.querySelectorAll('.pricing-card');
+        const searchInput = document.getElementById('pricing-search');
+        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+        
+        cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            const cardTitle = card.querySelector('h3').innerText.toLowerCase();
+            
+            const categoryMatch = (currentCategory === 'all' || cardCategory === currentCategory);
+            const searchMatch = cardTitle.includes(searchTerm);
+            
+            if (categoryMatch && searchMatch) {
+                card.style.display = 'flex'; // our original flex
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    function openModal(title, price) {
+        const modal = document.getElementById('pricing-modal');
+        const content = document.getElementById('modal-content');
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-price').innerText = price;
+        
+        modal.classList.remove('hidden');
+        // trigger animation
+        setTimeout(() => {
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+    
+    function closeModal() {
+        const modal = document.getElementById('pricing-modal');
+        const content = document.getElementById('modal-content');
+        
+        content.classList.remove('scale-100', 'opacity-100');
+        content.classList.add('scale-95', 'opacity-0');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+</script>
+<footer class="bg-black py-12 border-t border-slate-200 dark:border-white/10 text-slate-500 text-xs">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="posters/logo_chillzone.jpeg" alt="Chill Zone Logo" class="h-8 w-auto object-contain">
+                <span class="text-white font-bold text-lg">Chill Zone</span>
+            </div>
+
+            <p>© 2026 Chill Zone Air Conditioning Services. near chennaman temple, eramalloor, cherthala, alappuzha. All rights reserved.</p>
+
+            <div class="flex gap-4 sm:gap-6 flex-wrap justify-center">
+                <a href="mailto:chillzone9105@gmail.com" class="hover:text-slate-900 dark:hover:text-white transition-colors">chillzone9105@gmail.com</a>
+                <a href="tel:+919567767033" class="hover:text-slate-900 dark:hover:text-white transition-colors">Call: 95677 67033</a>
+                <a href="https://wa.me/919567767033" class="hover:text-slate-900 dark:hover:text-white transition-colors">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- SERVICE DETAIL MODAL -->
+    <div id="service-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-panel max-w-lg w-full p-8 rounded-3xl border border-slate-300 dark:border-white/20 relative">
+            <button onclick="closeServiceModal()" class="absolute top-6 right-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div id="service-modal-content" class="space-y-4">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS TOAST NOTIFICATION -->
+    <div id="toast"
+        class="fixed top-24 right-4 z-50 glass-panel border border-brand-500/50 p-4 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-x-[150%] transition-transform duration-300">
+        <div class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white">
+            <i data-lucide="check" class="w-5 h-5"></i>
+        </div>
+        <div>
+            <h4 class="text-slate-900 dark:text-white font-bold text-sm">Request Submitted!</h4>
+            <p class="text-xs text-slate-700 dark:text-slate-300">Chill Zone team will contact you shortly on phone.</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // SLIDER DATA & LOGIC
+        const slidesData = [
+            {
+                subtitle: "FEEL THE BREEZE",
+                title: "Cool Air,<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-500 to-blue-400'>No Care.</span>",
+                desc: "Determining the appropriate cooling setup, inverter power, and maintenance schedule tailored for homes and businesses across Eramalloor & Cherthala."
+            },
+            {
+                subtitle: "PEAK GUARD PROTECTION",
+                title: "Experience the Art of<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-500 to-blue-400'>Perfect Air.</span>",
+                desc: "Proper installation is crucial for ensuring the durability and effectiveness of your AC unit. Includes leak testing, vacuum flushing, and electrical protection."
+            },
+            {
+                subtitle: "RAIN & HUMIDITY ARMOR",
+                title: "Precision Cooling.<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-500 to-blue-400'>Trusted Service.</span>",
+                desc: "Regular inspection and maintenance are necessary to identify issues such as gas leaks, coil corrosion, and compressor pressure drops."
+            },
+            {
+                subtitle: "SUSTAINABLE COOLING",
+                title: "Smart Cooling for a<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-500 to-blue-400'>Sustainable World.</span>",
+                desc: "Delivering top-notch inverter cooling solutions, protecting your home with quality craftsmanship and eco-friendly R32 refrigerants."
+            }
+        ];
+
+        let currentSlide = 0;
+        let slideInterval = setInterval(nextSlide, 3000);
+
+        function setSlide(index) {
+            currentSlide = index;
+            updateSlideUI();
+            resetSlideTimer();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slidesData.length;
+            updateSlideUI();
+        }
+
+        function resetSlideTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function updateSlideUI() {
+            // Update Text
+            const data = slidesData[currentSlide];
+
+            document.getElementById('hero-title').innerHTML = data.title;
+            document.getElementById('hero-desc').innerText = data.desc;
+
+            // Update Background Images
+            for (let i = 0; i < 4; i++) {
+                const bg = document.getElementById(`slide-bg-${i}`);
+                if (i === currentSlide) {
+                    bg.classList.remove('opacity-0', 'scale-105');
+                    bg.classList.add('opacity-100', 'scale-100');
+                } else {
+                    bg.classList.remove('opacity-100', 'scale-100');
+                    bg.classList.add('opacity-0', 'scale-105');
+                }
+            }
+
+            // Update Nav Indicators
+            const navBtns = document.querySelectorAll('.slide-nav-btn');
+            navBtns.forEach((btn, idx) => {
+                const line = btn.querySelector('.nav-line');
+                if (idx === currentSlide) {
+                    btn.classList.remove('text-slate-500');
+                    btn.classList.add('text-white');
+                    line.classList.remove('bg-white/20');
+                    line.classList.add('bg-brand-500', 'w-12');
+                } else {
+                    btn.classList.remove('text-white');
+                    btn.classList.add('text-slate-500');
+                    line.classList.remove('bg-brand-500', 'w-12');
+                    line.classList.add('bg-white/20', 'w-8');
+                }
+            });
+        }
+
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+
+            if (menu.classList.contains('opacity-0')) {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                iconOpen.classList.add('hidden');
+                iconClose.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // AC CALCULATOR LOGIC
+        function calculateAC() {
+            const sqft = parseInt(document.getElementById('sqft-slider').value);
+            const sun = document.getElementById('sun-select').value;
+            document.getElementById('sqft-val').innerText = sqft + ' sq ft';
+
+            let ton = "1.0 Ton";
+            let advice = "Ideal for small bedrooms up to 120 sq ft. Efficient cooling with minimal electricity usage.";
+
+            let effectiveSqft = sqft * (sun === 'sunny' ? 1.25 : 1.0);
+
+            if (effectiveSqft > 250) {
+                ton = "2.0 Ton";
+                advice = "Recommended for large living halls and open office spaces above 250 sq ft in Kerala.";
+            } else if (effectiveSqft > 130) {
+                ton = "1.5 Ton";
+                advice = "Most popular size! Perfect for standard master bedrooms (120 - 200 sq ft) in Cherthala.";
+            } else {
+                ton = "1.0 Ton";
+                advice = "Ideal for standard guest rooms or small study spaces with low ambient heat load.";
+            }
+
+            document.getElementById('tonnage-result').innerText = ton;
+            document.getElementById('tonnage-advice').innerText = advice;
+        }
+
+        // TESTIMONIAL CAROUSEL
+        const testimonials = [
+            {
+                quote: "The Chill Zone team saved us during peak summer in Eramalloor. Their jet pressure cleaning was extremely thorough, and our AC cooling restored immediately!",
+                author: "Rajesh Varma",
+                role: "Homeowner — Eramalloor, Cherthala"
+            },
+            {
+                quote: "Prompt and transparent pricing! Installed two 1.5-ton inverter ACs at our showroom. Clean copper piping work and no hidden charges.",
+                author: "Santhosh Kumar",
+                role: "Store Owner — Aroor"
+            },
+            {
+                quote: "Best AC service near Cherthala. They diagnosed a complex circuit issue that another technician missed and fixed it on the same day.",
+                author: "Dr. Ananya Nair",
+                role: "Resident — Chandiroor"
+            }
+        ];
+
+        function setTestimonial(index) {
+            const item = testimonials[index];
+            document.getElementById('testimonial-text').innerText = `“${item.quote}”`;
+            document.getElementById('testimonial-author').innerText = item.author;
+            document.getElementById('testimonial-role').innerText = item.role;
+
+            const dots = document.querySelectorAll('.test-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === index) {
+                    dot.classList.remove('bg-slate-600');
+                    dot.classList.add('bg-brand-500');
+                } else {
+                    dot.classList.remove('bg-brand-500');
+                    dot.classList.add('bg-slate-600');
+                }
+            });
+        }
+
+        // FAQ ACCORDION TOGGLE
+        function toggleFAQ(num) {
+            const answer = document.getElementById(`faq-answer-${num}`);
+            const icon = document.getElementById(`faq-icon-${num}`);
+
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(45deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // MODAL HANDLERS
+        function openBookingModal(customNote) {
+            // Scroll to the "Schedule a Visit" form instead of opening a modal
+            document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            if (customNote) {
+                // Pre-fill the textarea in the form
+                const textarea = document.querySelector('#contact-form textarea');
+                if (textarea) {
+                    textarea.value = customNote;
+                }
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showToast();
+            e.target.reset();
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-x-[150%]');
+            setTimeout(() => {
+                toast.classList.add('translate-x-[150%]');
+            }, 4000);
+        }
+
+        // SERVICE DETAILS MODAL
+        const serviceDetailsMap = {
+            '01': {
+                title: "AC Sales & Precision Installation",
+                desc: "Proper split & cassette AC mounting with high-grade copper tubes, anti-vibration rubber pads, vacuum evacuation, and drain piping for long-term reliability in humid climates."
+            },
+            '02': {
+                title: "Emergency Repair & Circuit Diagnostics",
+                desc: "Expert troubleshooting for compressor starting faults, PCB sensor failures, water dripping, electrical tripping with original spare parts replacement."
+            },
+            '03': {
+                title: "Deep Jet Cleaning & Maintenance",
+                desc: "Pressure water jet wash for indoor cooling coils and outdoor condenser fins. Clears dust, mildew, and restores peak airflow while cutting electricity bills up to 25%."
+            },
+            '04': {
+                title: "Refrigerator Service & Repair",
+                desc: "Expert doorstep repair for single-door, double-door, and side-by-side refrigerators. We fix cooling losses, compressor faults, thermostat issues, and water leakages with genuine parts."
+            }
+        };
+
+        function openServiceDetail(id) {
+            const item = serviceDetailsMap[id];
+            const content = document.getElementById('service-modal-content');
+            content.innerHTML = `
+                <div class="inline-block p-3 rounded-2xl bg-brand-500/20 text-brand-400 font-bold mb-2">Service Overview ${id}</div>
+                <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">${item.title}</h3>
+                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">${item.desc}</p>
+                <div class="pt-4 flex gap-3">
+                    <button onclick="closeServiceModal(); openBookingModal('Booking for ${item.title}');" class="flex-1 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm">
+                        Request This Service
+                    </button>
+                    <a href="tel:+919567767033" class="px-4 py-3 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white font-bold text-sm flex items-center justify-center">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            `;
+            lucide.createIcons();
+            const modal = document.getElementById('service-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('service-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+    </script>
+    <script>
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+        
+        // On page load or when changing themes, best to add inline in head to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            // document.documentElement.classList.add('dark'); // Since light is default, we only apply if explicitly set in localstorage, or if preference is dark. Actually user requested: "light mode must be default and dark mode must be selectable only if needed"
+            // Let's make it explicitly check if localstorage is dark.
+        }
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Splash Screen Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if(splash) {
+                    splash.classList.add('opacity-0');
+                    setTimeout(() => splash.remove(), 500);
+                }
+            }, 2000);
+        });
+    </script>
+
+
+    <!-- CHATBOT -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl mb-4 overflow-hidden transition-all transform origin-bottom-right">
+            <div class="bg-gradient-to-r from-brand-600 to-sky-400 p-4 text-white flex justify-between items-center">
+                <div class="font-bold flex items-center gap-2">
+                    <i data-lucide="bot" class="w-5 h-5"></i>
+                    ChillBot
+                </div>
+                <button onclick="toggleChat()" class="hover:text-slate-200"><i data-lucide="x" class="w-4 h-4"></i></button>
+            </div>
+            <div id="chat-messages" class="p-4 h-64 overflow-y-auto flex flex-col gap-3 text-sm bg-slate-50 dark:bg-slate-800 scroll-smooth">
+                <!-- Messages go here -->
+            </div>
+            <div class="p-3 border-t border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900">
+                <form id="chat-form" onsubmit="handleChatSubmit(event)" class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Type a message..." required class="flex-1 bg-slate-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-brand-500 text-sm">
+                    <button type="submit" class="bg-brand-600 text-white p-2 rounded-lg hover:bg-brand-500"><i data-lucide="send" class="w-4 h-4"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Bubble Button -->
+        <button onclick="toggleChat()" class="w-14 h-14 bg-gradient-to-tr from-brand-600 to-sky-400 rounded-full flex items-center justify-center text-white shadow-xl shadow-brand-500/30 hover:scale-105 transition-transform">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+        </button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function toggleChat() {
+            const chatWin = document.getElementById('chat-window');
+            if (chatWin.classList.contains('hidden')) {
+                chatWin.classList.remove('hidden');
+                if (document.getElementById('chat-messages').children.length === 0) {
+                    addBotMessage(getGreeting() + " I am ChillBot! What do you need help with?");
+                }
+            } else {
+                chatWin.classList.add('hidden');
+            }
+        }
+
+        function getGreeting() {
+            const hour = new Date().getHours();
+            if (hour < 12) return "Good morning!";
+            if (hour < 18) return "Good afternoon!";
+            return "Good evening!";
+        }
+
+        function addBotMessage(text) {
+            const msgs = document.getElementById('chat-messages');
+            msgs.innerHTML += `<div class="bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white p-3 rounded-xl rounded-tl-none self-start max-w-[85%]">${text}</div>`;
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const msgs = document.getElementById('chat-messages');
+            msgs.innerHTML += `<div class="bg-brand-600 text-white p-3 rounded-xl rounded-tr-none self-end max-w-[85%]">${text}</div>`;
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        function handleChatSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            addUserMessage(text);
+            input.value = '';
+
+            setTimeout(() => {
+                const lowerText = text.toLowerCase();
+                if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('rate') || lowerText.includes('quote')) {
+                    addBotMessage("Our pricing is highly competitive! Please use the AC Calculator on our site or request a call for a tailored quote.");
+                } else if (lowerText.includes('repair') || lowerText.includes('fix') || lowerText.includes('service') || lowerText.includes('cleaning')) {
+                    addBotMessage("We offer expert repair, jet cleaning, and maintenance for ACs and refrigerators!");
+                } else if (lowerText.includes('time') || lowerText.includes('hour') || lowerText.includes('open') || lowerText.includes('close')) {
+                    addBotMessage("Our business hours are from 8:30 AM to 6:00 PM.");
+                } else if (lowerText.includes('location') || lowerText.includes('where') || lowerText.includes('area') || lowerText.includes('place') || lowerText.includes('serve')) {
+                    addBotMessage("We are based in Eramalloor and serve Cherthala, Aroor, and Ernakulam.");
+                } else if (lowerText.includes('install') || lowerText.includes('buy') || lowerText.includes('sales')) {
+                    addBotMessage("We handle new AC sales and precision installations. Our experts can recommend the perfect model for your room size.");
+                } else {
+                    addBotMessage("For detailed information, please request a call using the 'Schedule a Visit' form on our website, or call us directly at +91 95677 67033!");
+                }
+            }, 600);
+        }
+    </script>
+</body>
+</html>
