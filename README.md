@@ -3,7 +3,7 @@
 Chill Zone is a professional AC repair and servicing business located in Eramalloor, Cherthala, Alappuzha. We specialize in both air conditioning and refrigerator systems, bringing fast, reliable, and transparent service to every household.
 
 ## Features
-- **Landing Page (`new.html`)**: Complete overview of services, about us, and dynamic contact options.
+- **Landing Page (`index.html`)**: Complete overview of services, about us, and dynamic contact options.
 - **Pricing Page (`pricing.html`)**: Comprehensive service catalog with integrated search and pricing details.
 - **Gallery (`posters.html`)**: Showcase of past works and professional service standards.
 
@@ -21,7 +21,7 @@ To view the website locally, you can serve the directory using any static web se
 ```bash
 python -m http.server 8000
 ```
-Then navigate to `http://localhost:8000/new.html`
+Then navigate to `http://localhost:8000/index.html`
 
 ### Using Node.js:
 If you have a server file configured, you can run:
